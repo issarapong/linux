@@ -1,0 +1,19 @@
+
+# Auto-detect ENV from hostname
+case "$(hostname)" in
+  *.dev.*)  ENV_LABEL="[DEV]";  ENV_COLOR="\[\e[1;32m\]" ;;  # เขียว
+  *.sit.*)  ENV_LABEL="[SIT]";  ENV_COLOR="\[\e[1;36m\]" ;;  # ฟ้าอ่อน
+  *.test.*) ENV_LABEL="[TEST]"; ENV_COLOR="\[\e[1;35m\]" ;;  # ม่วง
+  *.perf.*) ENV_LABEL="[PERF]"; ENV_COLOR="\[\e[1;34m\]" ;;  # น้ำเงิน
+  *.qa.*)   ENV_LABEL="[QA]";   ENV_COLOR="\[\e[1;33m\]" ;;  # เหลืองเข้ม
+  *.uat.*)  ENV_LABEL="[UAT]";  ENV_COLOR="\[\e[1;33m\]" ;;  # เหลือง
+  *.prod.*) ENV_LABEL="[PROD]"; ENV_COLOR="\[\e[1;31m\]" ;;  # แดง
+  *)        ENV_LABEL="[UNKNOWN]"; ENV_COLOR="\[\e[1;37m\]" ;;  # ขาวเทา
+esac
+
+export PS1="${ENV_COLOR}${ENV_LABEL}\[\e[0m\] \u@\h:\w\$ "
+
+
+nano ~/.bashrc
+
+source ~/.bashrc
