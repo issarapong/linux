@@ -1,3 +1,4 @@
+# Add to ~/.bashrc
 
 # Auto-detect ENV from hostname
 case "$(hostname)" in
@@ -14,6 +15,6 @@ esac
 export PS1="${ENV_COLOR}${ENV_LABEL}\[\e[0m\] \u@\h:\w\$ "
 
 
-nano ~/.bashrc
+# Reload
 
 source ~/.bashrc
